@@ -34,6 +34,7 @@ body {
 
 .header {
     height: 970px;
+    padding-top: 94px;
 }
 
 .header-image {
@@ -56,7 +57,11 @@ body {
 }
 
 .navbar {
-    position: relative;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    width: 100%;
     display: flex;
     align-items: center;
     color: #fff;
