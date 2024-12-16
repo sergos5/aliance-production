@@ -67,12 +67,22 @@ body {
     color: #fff;
     height: 94px;
     border-bottom: 1px solid rgba(235, 235, 240, 0.20);
+    transition: background-color 0.2s;
+}
+
+.navbar-light {
+    background-color: #FAFBFC;
+    color: #292D33;
 }
 
 .header-logo {
     height: 100%;
     padding: 25px 50px;
     border-right: 1px solid rgba(235, 235, 240, 0.20);
+}
+
+.navbar-light .header-logo-path {
+    fill: #292D33;
 }
 
 .header-nav {
