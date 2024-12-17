@@ -2,6 +2,10 @@
     box-sizing: border-box;
 }
 
+html {
+    font-size: 16px;
+}
+
 body::-webkit-scrollbar {
     display: none;
 }
@@ -32,7 +36,7 @@ body {
 }
 
 .container {
-    max-width: 1440px;
+    max-width: 90rem;
     margin: 0 auto;
 }
 
@@ -296,3 +300,7 @@ body {
     background: #5C8EE5;
     margin-right: 20px;
 }
+
+@media (max-width: 1600px) {}
+
+@media (max-width: 1200px) {}
