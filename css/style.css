@@ -66,23 +66,23 @@ body {
     align-items: center;
     color: #fff;
     height: 94px;
-    border-bottom: 1px solid rgba(235, 235, 240, 0.20);
-    transition: background-color 0.2s;
+    transition: background-color 0.2s, height 0.2s;
 }
 
 .navbar-light {
     background-color: #FAFBFC;
     color: #292D33;
+    transition: background-color 0.2s, height 0.2s;
+    height: 74px;
 }
 
 .header-logo {
     height: 100%;
-    padding: 25px 50px;
+    padding: 0 50px;
     border-right: 1px solid rgba(235, 235, 240, 0.20);
-}
-
-.navbar-light .header-logo-path {
-    fill: #292D33;
+    border-bottom: 1px solid rgba(235, 235, 240, 0.20);
+    display: flex;
+    align-items: center;
 }
 
 .header-nav {
@@ -91,7 +91,9 @@ body {
     text-decoration: none;
     list-style: none;
     flex-basis: 100%;
-    margin-left: 50px;
+    padding-left: 50px;
+    height: inherit;
+    border-bottom: 1px solid rgba(235, 235, 240, 0.20);
 }
 
 .header-nav-item {
@@ -112,7 +114,9 @@ body {
     justify-content: center;
     flex-shrink: 0;
     gap: 10px;
-    margin-right: 50px;
+    height: inherit;
+    padding-right: 50px;
+    border-bottom: 1px solid rgba(235, 235, 240, 0.20);
 }
 
 .header-phone-tel {
