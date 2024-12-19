@@ -94,8 +94,8 @@ body {
 }
 
 .logo-svg {
-    width: 8.75rem;
-    height: 2.75rem
+    width: 140px;
+    height: 44px
 }
 
 .header-nav {
@@ -330,12 +330,8 @@ body {
 
 
 @media (max-width: 1600px) {
-    html {
-        font-size: 14px;
-    }
-
-    .container {
-        max-width: 1140px;
+    .header-phone {
+        display: none;
     }
 
     .header-content {
@@ -344,13 +340,17 @@ body {
 }
 
 @media (max-width: 1350px) {
+    .container {
+        max-width: 1140px;
+    }
+
     .header-logo {
         padding: 0 1rem;
     }
 
     .logo-svg {
-        width: 6.25rem;
-        height: 2.75rem
+        width: 120px;
+        height: 38px;
     }
 
     .navbar-button {
@@ -367,11 +367,9 @@ body {
     }
 }
 
-
-
 @media (max-width: 1200px) {
     html {
-        font-size: 13px;
+        font-size: 14px;
     }
 
     .container {
@@ -382,28 +380,30 @@ body {
         padding-top: 80px;
     }
 
-    .header-phone {
-        display: none;
-    }
-
     .navbar {
         height: 80px;
+    }
+
+    .header-nav {
+        padding-left: 14px;
     }
 
     .navbar-light {
         height: 68px;
     }
 
+    .navbar-button {
+        max-width: 149px;
+    }
+
     .header-features-item {
         padding: 2.0125rem 2.325rem;
     }
 
+
 }
 
 @media (max-width: 992px) {
-    html {
-        font-size: 12px;
-    }
 
     .container {
         max-width: 720px;
@@ -449,4 +449,13 @@ body {
     .navbar-light .mobile-menu-line {
         background-color: #292D33;
     }
+
+    .navbar-button {
+        width: 80px;
+    }
+
+    .navbar-button span {
+        display: none;
+    }
+
 }
