@@ -16,6 +16,81 @@
 </head>
 
 <body>
+    <div class="mobile-menu">
+        <ul class="mobile-menu-list">
+            <li class="mobile-menu-item">
+                <a href="#" class="mobile-menu-link">О компании</a>
+            </li>
+            <li class="mobile-menu-item">
+                <a href="#" class="mobile-menu-link">Контрактное производство</a>
+                <ul class="mobile-submenu">
+                    <li class="mobile-submenu-item">
+                        <a href="#" class="mobile-submenu-link">Автомобильная химия</a>
+                    </li>
+                    <li class="mobile-submenu-item">
+                        <a href="#" class="mobile-submenu-link">Бытовая химия</a>
+                    </li>
+                    <li class="mobile-submenu-item">
+                        <a href="#" class="mobile-submenu-link">Дезинфицирующие средства</a>
+                    </li>
+                    <li class="mobile-submenu-item">
+                        <a href="#" class="mobile-submenu-link">Пищевые аэрозоли</a>
+                    </li>
+                    <li class="mobile-submenu-item">
+                        <a href="#" class="mobile-submenu-link">Косметическая продукция</a>
+                    </li>
+                    <li class="mobile-submenu-item">
+                        <a href="#" class="mobile-submenu-link">Краски аэрозольные</a>
+                    </li>
+                </ul>
+            </li>
+            <li class="mobile-menu-item">
+                <a href="#" class="mobile-menu-link">Собственные торговые марки</a>
+                <ul class="mobile-submenu">
+                    <li class="mobile-submenu-item">
+                        <a href="#" class="mobile-submenu-link">Автохимия AG-Tech</a>
+                    </li>
+                    <li class="mobile-submenu-item">
+                        <a href="#" class="mobile-submenu-link">Автохимия AP</a>
+                    </li>
+                </ul>
+            </li>
+            <li class="mobile-menu-item">
+                <a href="#" class="mobile-menu-link">Новости</a>
+            </li>
+            <li class="mobile-menu-item">
+                <a href="#" class="mobile-menu-link">Контакты</a>
+            </li>
+        </ul>
+        <div class="mobile-contact-section">
+            <a href="+74996861014" class="mobile-phone">+7 (499) 686-10-14</a>
+            <div class="mobile-info">
+                <svg class="icon" width="24" height="24">
+                    <use href="image/sprite.svg#mark"></use>
+                </svg>
+                <address class="mobile-info-text">г. Мосвка, Холодильный пер. 4к1с8</address>
+            </div>
+            <!-- /.mobile-info -->
+            <div class="mobile-info">
+                <svg class="icon" width="24" height="24">
+                    <use href="image/sprite.svg#mail"></use>
+                </svg>
+                <a href="mailto:sergos5@yandex.ru" class="mobile-info-text">a.dragunov@tdaliance.ru</a>
+            </div>
+            <!-- /.mobile-info -->
+            <div class="mobile-info-social">
+                <svg class="icon" width="24" height="24">
+                    <use href="image/sprite.svg#vk"></use>
+                </svg>
+                <svg class="icon" width="24" height="24">
+                    <use href="image/sprite.svg#inst"></use>
+                </svg>
+            </div>
+            <!-- /.mobile-info-social -->
+        </div>
+        <!-- /.mobile-contact-section -->
+    </div>
+    <!-- /.mobile-menu -->
     <nav class="navbar">
         <a href="#" class="mobile-menu-toggle">
             <div class="mobile-menu-container">
@@ -25,25 +100,26 @@
             </div>
         </a>
         <a href="./" class="header-logo">
+            <!-- <img class="logo-svg" src="./image/logo/logo-light.svg" alt=""> -->
             <svg class="logo-svg">
-                <use href="./image/sprite.svg#logo-light"></use>
+                <use href="image/sprite.svg#logo-light"></use>
             </svg>
         </a>
         <ul class="header-nav">
             <li class="header-nav-item">
-                <a href="#" class="hasder-nav-link">О компании</a>
+                <a href="#" class="header-nav-link">О компании</a>
             </li>
             <li class="header-nav-item">
-                <a href="#" class="hasder-nav-link">Контрактное производство</a>
+                <a href="#" class="header-nav-link">Контрактное производство</a>
             </li>
             <li class="header-nav-item">
-                <a href="#" class="hasder-nav-link">Собственные торговые марки</a>
+                <a href="#" class="header-nav-link">Собственные торговые марки</a>
             </li>
             <li class="header-nav-item">
-                <a href="#" class="hasder-nav-link">Новости</a>
+                <a href="#" class="header-nav-link">Новости</a>
             </li>
             <li class="header-nav-item">
-                <a href="#" class="hasder-nav-link">Контакты</a>
+                <a href="#" class="header-nav-link">Контакты</a>
             </li>
         </ul>
         <!-- /.header-nav -->
@@ -55,6 +131,9 @@
         </div>
         <!-- /.header-phone -->
         <button class="navbar-button button">
+            <svg class="nb-phone-svg" width="16" height="16">
+                <use href="./image/sprite.svg#icon-phone"></use>
+            </svg>
             <span>Получить консультацию</span>
         </button>
     </nav>
