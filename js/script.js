@@ -17,12 +17,14 @@ const lightModeOff = () => {
 
 const openMenu = () => {
     mMenu.classList.add('is-open')
+    mMenuToggle.classList.add('close-menu')
     document.body.style.overflow = 'hidden'
     lightModeOn()
 }
 
 const closeMenu = () => {
     mMenu.classList.remove('is-open')
+    mMenuToggle.classList.remove('close-menu')
     document.body.style.overflow = ''
     if (window.scrollY === 0) lightModeOff()
 }
