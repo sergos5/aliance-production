@@ -5,26 +5,34 @@ const logo = document.querySelector('.logo-svg use')
 const mMenu = document.querySelector('.mobile-menu')
 const mMenuToggle = document.querySelector('.mobile-menu-toggle')
 
+const lightModeOn = () => {
+    navbar.classList.add('navbar-light')
+    logo.href.baseVal = "image/sprite.svg#logo-dark"
+}
+
+const lightModeOff = () => {
+    navbar.classList.remove('navbar-light')
+    logo.href.baseVal = "image/sprite.svg#logo-light"
+}
+
+const openMenu = () => {
+    mMenu.classList.add('is-open')
+    document.body.style.overflow = 'hidden'
+    lightModeOn()
+}
+
+const closeMenu = () => {
+    mMenu.classList.remove('is-open')
+    document.body.style.overflow = ''
+    if (window.scrollY === 0) lightModeOff()
+}
+
+
 window.addEventListener('scroll', () => {
-    if (this.scrollY > 1) {
-        navbar.classList.add('navbar-light')
-        logo.href.baseVal = "./image/sprite.svg#logo-dark"
-    } if (this.scrollY === 0 && !mMenu.classList.contains('is-open')) {
-        navbar.classList.remove('navbar-light')
-        logo.href.baseVal = "./image/sprite.svg#logo-light"
-    }
+    (this.scrollY > 1) ? lightModeOn() : lightModeOff()
 })
 
 mMenuToggle.addEventListener('click', (event) => {
     event.preventDefault()
-    mMenu.classList.toggle('is-open')
-
-    if (mMenu.classList.contains('is-open')) {
-        navbar.classList.add('navbar-light')
-        logo.href.baseVal = "./image/sprite.svg#logo-dark"
-
-    } else if (!mMenu.classList.contains('is-open') && window.scrollY === 0) {
-        navbar.classList.remove('navbar-light')
-        logo.href.baseVal = "./image/sprite.svg#logo-light"
-    }
+    mMenu.classList.contains('is-open') ? closeMenu() : openMenu()
 })
