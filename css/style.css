@@ -45,12 +45,16 @@ body {
 
 .container {
     max-width: 1440px;
+    height: 100%;
     margin: 0 auto;
+    position: relative;
+    overflow: hidden;
 }
 
 .header {
     height: 60.625rem;
     padding-top: 94px;
+
 }
 
 .header-image {
@@ -218,12 +222,20 @@ body {
     padding: 1.5625rem 3.75rem;
 }
 
+.header-features-wrapper {
+    width: 100%;
+    height: 168px;
+    overflow: hidden;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+
 .header-features {
     display: flex;
     justify-content: space-between;
     position: relative;
-    min-height: 10.5rem;
-    margin-top: 6.25rem;
+    height: 100%;
     list-style: none;
     color: #fff;
 }
@@ -231,7 +243,7 @@ body {
 .header-features-item {
     padding: 1.8125rem 3.125rem;
     border: 1px solid rgba(235, 235, 240, 0.20);
-    width: 25%;
+    width: 20%;
 }
 
 .header-features-item:not(:last-child) {
@@ -243,6 +255,10 @@ body {
     font-weight: 400;
     line-height: 160%;
     margin-top: 1.125rem;
+}
+
+.header-features-arrows {
+    display: none;
 }
 
 .section {
@@ -364,7 +380,9 @@ body {
 }
 
 @media (max-width: 1350px) {
-
+    .header-content {
+        padding-top: 7.775rem;
+    }
 
     .header-logo {
         padding: 0 1rem;
@@ -392,6 +410,10 @@ body {
 @media (max-width: 1200px) {
     html {
         font-size: 14px;
+    }
+
+    .header-content {
+        padding-top: 7.175rem;
     }
 
     .container {
@@ -591,4 +613,45 @@ body {
     .navbar-button .nb-phone-svg {
         fill: #ffffff
     }
+
+    .header-title {
+        font-size: 48px;
+    }
+
+    .header-features-wrapper {
+        height: 184px;
+    }
+
+    .header-features {
+        width: 1250px;
+        height: 140px;
+        transition: transform .3s;
+    }
+
+    .header-features-item {
+        width: 250px;
+        padding: 20px 30px;
+    }
+
+    .header-features-arrows {
+        z-index: 20;
+        width: 100%;
+        height: 44px;
+        display: flex;
+    }
+
+    .header-features-arrow {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex: 1;
+        height: 100%;
+        border-right: 1px solid rgba(235, 235, 240, 0.20);
+        cursor: pointer;
+    }
+
+    .arrow-left {
+        border-left: 1px solid rgba(235, 235, 240, 0.20);
+    }
+
 }
