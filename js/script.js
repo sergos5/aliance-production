@@ -29,7 +29,6 @@ const closeMenu = () => {
     if (window.scrollY === 0) lightModeOff()
 }
 
-
 window.addEventListener('scroll', () => {
     (this.scrollY > 1) ? lightModeOn() : lightModeOff()
 })
