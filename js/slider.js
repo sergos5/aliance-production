@@ -6,11 +6,11 @@ const slider = (slider) => {
     const arrowLeft = sliderWrapper.querySelector('.arrow-left')
     const arrowRight = sliderWrapper.querySelector('.arrow-right')
 
-    const containerWidth = document.querySelector('.container').clientWidth
-    const sliderBodyWidth = sliderBody.clientWidth
-    const stepWidth = sliderItem.clientWidth
+    let containerWidth = document.querySelector('.container').clientWidth
+    let sliderBodyWidth = sliderBody.clientWidth
+    let stepWidth = sliderItem.clientWidth
 
-    const maxSlideOffset = sliderBodyWidth - containerWidth
+    let maxSlideOffset = sliderBodyWidth - containerWidth
 
     let slideOffset = 0
 
@@ -32,26 +32,26 @@ const slider = (slider) => {
     }
 
     const swipeSlide = () => {
-        let startX = 0
-        let endX = 0
+        let touchStartX = 0
+        let touchEndX = 0
 
         const handleSwipeGesture = () => {
-            let offset = Math.abs(startX - endX)
+            let touchOffset = Math.abs(touchStartX - touchEndX)
 
-            if (startX > endX && offset > 100) {
+            if (touchStartX > touchEndX && touchOffset > 80) {
                 showRightSlide()
 
-            } else if (startX < endX && offset > 100) {
+            } else if (touchStartX < touchEndX && touchOffset > 80) {
                 showLeftSlide()
             }
         }
 
         sliderBody.addEventListener('touchstart', (event) => {
-            startX = event.changedTouches[0].clientX
+            touchStartX = event.changedTouches[0].clientX
         })
 
         sliderBody.addEventListener('touchend', (event) => {
-            endX = event.changedTouches[0].clientX
+            touchEndX = event.changedTouches[0].clientX
             handleSwipeGesture()
         })
     }
@@ -59,8 +59,19 @@ const slider = (slider) => {
     arrowRight.addEventListener('click', showRightSlide)
     arrowLeft.addEventListener('click', showLeftSlide)
 
+    window.addEventListener('resize', () => {
+        console.log('resize');
+        containerWidth = document.querySelector('.container').clientWidth
+        sliderBodyWidth = sliderBody.clientWidth
+        stepWidth = sliderItem.clientWidth
+        maxSlideOffset = sliderBodyWidth - containerWidth
+        slideOffset = 0
+        showLeftSlide()
+    })
+
     swipeSlide()
 }
 
 slider('.header-features-wrapper')
 slider('.steps-wrapper')
+
