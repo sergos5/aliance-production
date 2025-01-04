@@ -10,30 +10,57 @@ const slider = (slider) => {
     const sliderBodyWidth = sliderBody.clientWidth
     const stepWidth = sliderItem.clientWidth
 
-    console.log(stepWidth);
-
     const maxSlideOffset = sliderBodyWidth - containerWidth
 
     let slideOffset = 0
 
-    arrowRight.addEventListener('click', () => {
+    const showRightSlide = () => {
         if (maxSlideOffset + slideOffset < stepWidth) {
             slideOffset = -maxSlideOffset
         } else {
             slideOffset -= stepWidth
         }
         sliderBody.style.transform = `translate(${slideOffset}px)`
-    })
+    }
 
-    arrowLeft.addEventListener('click', () => {
+    const showLeftSlide = () => {
         slideOffset += stepWidth
         if (stepWidth - slideOffset < stepWidth) {
             slideOffset = 0
         }
         sliderBody.style.transform = `translate(${slideOffset}px)`
-    })
+    }
+
+    const swipeSlide = () => {
+        let startX = 0
+        let endX = 0
+
+        const handleSwipeGesture = () => {
+            let offset = Math.abs(startX - endX)
+
+            if (startX > endX && offset > 100) {
+                showRightSlide()
+
+            } else if (startX < endX && offset > 100) {
+                showLeftSlide()
+            }
+        }
+
+        sliderBody.addEventListener('touchstart', (event) => {
+            startX = event.changedTouches[0].clientX
+        })
+
+        sliderBody.addEventListener('touchend', (event) => {
+            endX = event.changedTouches[0].clientX
+            handleSwipeGesture()
+        })
+    }
+
+    arrowRight.addEventListener('click', showRightSlide)
+    arrowLeft.addEventListener('click', showLeftSlide)
+
+    swipeSlide()
 }
 
 slider('.header-features-wrapper')
-
 slider('.steps-wrapper')

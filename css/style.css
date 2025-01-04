@@ -114,6 +114,10 @@ body {
     height: 44px
 }
 
+.logo-dark {
+    display: none;
+}
+
 .header-nav {
     display: flex;
     align-items: center;
@@ -685,11 +689,6 @@ body {
         padding-right: 30px;
     }
 
-    /* .steps-item:not(:last-child) {
-        margin-left: 30px;
-    } */
-
-
     .steps-num {
         margin-bottom: 10px;
     }
@@ -700,6 +699,7 @@ body {
         align-items: center;
         justify-content: flex-end;
         margin-top: 20px;
+        cursor: pointer;
     }
 
     .steps-arrow {
@@ -709,18 +709,13 @@ body {
         background-color: #5C8EE5;
         width: 60px;
         height: 40px;
-
     }
-
-
-
 }
 
 @media (max-width: 768px) {
     .container {
         padding: 0 20px;
     }
-
 }
 
 @media (max-width: 576px) {

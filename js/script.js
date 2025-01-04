@@ -1,18 +1,26 @@
 'use strict'
 
 const navbar = document.querySelector('.navbar')
-const logo = document.querySelector('.logo-svg use')
+const logoLight = document.querySelector('.logo-light')
+const logoDark = document.querySelector('.logo-dark')
 const mMenu = document.querySelector('.mobile-menu')
 const mMenuToggle = document.querySelector('.mobile-menu-toggle')
 
 const lightModeOn = () => {
     navbar.classList.add('navbar-light')
-    logo.href.baseVal = "image/sprite.svg#logo-dark"
+    logoDark.style.display = "block"
+    logoLight.style.display = "none"
+
+    //logo.href.baseVal = "image/sprite.svg#logo-dark"
 }
 
 const lightModeOff = () => {
     navbar.classList.remove('navbar-light')
-    logo.href.baseVal = "image/sprite.svg#logo-light"
+    logoDark.style.display = "none"
+    logoLight.style.display = "block"
+
+
+    //logo.href.baseVal = "image/sprite.svg#logo-light"
 }
 
 const openMenu = () => {
