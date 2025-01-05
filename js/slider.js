@@ -6,6 +6,11 @@ const slider = (slider) => {
     const arrowLeft = sliderWrapper.querySelector('.arrow-left')
     const arrowRight = sliderWrapper.querySelector('.arrow-right')
 
+    const arrRight = arrowRight.querySelector('.arr-right')
+    const arrLeft = arrowLeft.querySelector('.arr-left')
+
+    arrLeft.style.fill = '#B2B4C0'
+
     let containerWidth = document.querySelector('.container').clientWidth
     let sliderBodyWidth = sliderBody.clientWidth
     let stepWidth = sliderItem.clientWidth
@@ -18,8 +23,10 @@ const slider = (slider) => {
     const showRightSlide = () => {
         if (maxSlideOffset + slideOffset < stepWidth) {
             slideOffset = -maxSlideOffset
+            arrRight.style.fill = '#B2B4C0'
         } else {
             slideOffset -= stepWidth
+            arrLeft.style.fill = 'white'
         }
         sliderBody.style.transform = `translate(${slideOffset}px)`
     }
@@ -28,8 +35,10 @@ const slider = (slider) => {
         slideOffset += stepWidth
         if (stepWidth - slideOffset < stepWidth) {
             slideOffset = 0
+            arrLeft.style.fill = '#B2B4C0'
         }
         sliderBody.style.transform = `translate(${slideOffset}px)`
+        arrRight.style.fill = 'white'
     }
 
     const swipeSlide = () => {
@@ -68,6 +77,7 @@ const slider = (slider) => {
             stepWidth = sliderItem.clientWidth
             maxSlideOffset = sliderBodyWidth - containerWidth
             slideOffset = 0
+            arrLeft.style.fill = '#B2B4C0'
             showLeftSlide()
         }
     })
