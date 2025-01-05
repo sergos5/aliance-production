@@ -9,6 +9,7 @@ const slider = (slider) => {
     let containerWidth = document.querySelector('.container').clientWidth
     let sliderBodyWidth = sliderBody.clientWidth
     let stepWidth = sliderItem.clientWidth
+    let screenWidth = window.outerWidth
 
     let maxSlideOffset = sliderBodyWidth - containerWidth
 
@@ -59,14 +60,16 @@ const slider = (slider) => {
     arrowRight.addEventListener('click', showRightSlide)
     arrowLeft.addEventListener('click', showLeftSlide)
 
-    window.addEventListener('resize', () => {
-        console.log('resize');
-        containerWidth = document.querySelector('.container').clientWidth
-        sliderBodyWidth = sliderBody.clientWidth
-        stepWidth = sliderItem.clientWidth
-        maxSlideOffset = sliderBodyWidth - containerWidth
-        slideOffset = 0
-        showLeftSlide()
+    window.addEventListener('resize', (e) => {
+        if (this.outerWidth != screenWidth) {
+            screenWidth = this.outerWidth
+            containerWidth = document.querySelector('.container').clientWidth
+            sliderBodyWidth = sliderBody.clientWidth
+            stepWidth = sliderItem.clientWidth
+            maxSlideOffset = sliderBodyWidth - containerWidth
+            slideOffset = 0
+            showLeftSlide()
+        }
     })
 
     swipeSlide()

@@ -132,6 +132,10 @@ body {
 .header-nav-item {
     margin-right: 3.125rem;
     text-align: center;
+    height: 100%;
+    /* display: flex;
+    align-items: center;
+    justify-content: center; */
 }
 
 .header-nav-link {
@@ -140,7 +144,32 @@ body {
     font-size: 1rem;
     font-weight: 400;
     line-height: 160%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
 }
+
+.header-nav-link:after {
+    content: "";
+    width: 0;
+    height: 2px;
+    position: absolute;
+    bottom: 0;
+    left: auto;
+    right: 0;
+    background-color: #5C8EE5;
+    transition: width .2s;
+
+}
+
+.header-nav-link:hover::after {
+    width: 100%;
+    right: auto;
+    left: 0;
+}
+
 
 .header-phone {
     display: flex;
@@ -177,11 +206,16 @@ body {
     line-height: 160%;
     color: #fff;
     cursor: pointer;
+    transition: background .2s;
 }
+
+.button:hover {
+    background: #3A71D1;
+}
+
 
 .navbar-button {
     height: 100%;
-    /*  width: 18.875rem; */
     padding: 2.125rem 3.3125rem;
 }
 
@@ -221,7 +255,6 @@ body {
 }
 
 .header-button {
-    width: 19.4375rem;
     height: 4.75rem;
     padding: 1.5625rem 3.75rem;
 }
@@ -264,6 +297,7 @@ body {
 .header-features-arrows,
 .steps-arrows {
     display: none;
+    -webkit-tap-highlight-color: transparent;
 }
 
 .section {
@@ -276,11 +310,11 @@ body {
     font-size: 3.75rem;
     line-height: 120%;
     margin-top: 1.5rem;
+    margin-bottom: 3.125rem;
     font-weight: 400;
 }
 
 .steps {
-    margin-top: 3.125rem;
     display: flex;
     list-style: none;
     justify-content: space-between;
@@ -338,6 +372,7 @@ body {
     text-decoration: none;
     display: flex;
     align-items: center;
+
 }
 
 .steps-link::before {
@@ -346,7 +381,70 @@ body {
     height: 1px;
     background: #5C8EE5;
     margin-right: 1.25rem;
+    transition: width .2s;
 }
+
+.steps-link:hover::before {
+    width: 3.75rem;
+}
+
+.production-cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.production-card {
+    height: 37.0625rem;
+    position: relative;
+    flex-basis: 33%;
+    border: 1px solid #EBEBF0;
+    transition: border .2s;
+}
+
+.production-card-content {
+    margin-left: 40px;
+    margin-top: 50px;
+}
+
+.production-card-title {
+    color: #292D33;
+    font-size: 1.75rem;
+    font-weight: 400;
+    line-height: 160%;
+    margin-bottom: 10px;
+    transition: color .2s;
+}
+
+.production-card-text {
+    color: #828A99;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 160%;
+    max-width: 19.375rem;
+}
+
+.production-card-image {
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
+    width: 90%;
+}
+
+.production-card:hover {
+    border-color: #5C8EE5;
+}
+
+.production-card:hover .production-card-title {
+    color: #5C8EE5;
+}
+
+
+
+
+
+
+
 
 
 
@@ -448,6 +546,10 @@ body {
     .header-features-item {
         padding: 2.0125rem 2.325rem;
     }
+
+    .production-card {
+        flex-basis: 50%;
+    }
 }
 
 @media (max-width: 992px) {
@@ -517,7 +619,6 @@ body {
     .close-menu .mobile-menu-line:nth-child(3) {
         transform: rotate(-45deg) translate(6px, -12px);
     }
-
 
     .navbar-light .mobile-menu-line {
         background-color: #292D33;
@@ -673,6 +774,10 @@ body {
         margin-top: 100px;
     }
 
+    .section-title {
+        margin-bottom: 1.875rem;
+    }
+
     .steps-wrapper {
         overflow: visible;
     }
@@ -710,11 +815,30 @@ body {
         width: 60px;
         height: 40px;
     }
+
+    .steps-arrow path:active {
+        fill: red
+    }
 }
 
 @media (max-width: 768px) {
     .container {
         padding: 0 20px;
+    }
+
+    .production-card {
+        max-width: 30rem;
+        /* width: 21.5625rem; */
+        height: 429px;
+        flex-basis: 100%;
+    }
+
+    .production-card-content {
+        margin: 30px 20px;
+    }
+
+    .production-card-title {
+        font-size: 1.25rem;
     }
 }
 
@@ -741,6 +865,10 @@ body {
         width: 100%;
         height: 3.875rem;
         padding: 1.5625rem 3.75rem;
+    }
+
+    .section-title {
+        font-size: 2.25rem;
     }
 
 }
