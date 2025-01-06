@@ -54,7 +54,6 @@ body {
 .header {
     height: 60.625rem;
     padding-top: 94px;
-
 }
 
 .header-image {
@@ -133,9 +132,6 @@ body {
     margin-right: 3.125rem;
     text-align: center;
     height: 100%;
-    /* display: flex;
-    align-items: center;
-    justify-content: center; */
 }
 
 .header-nav-link {
@@ -929,7 +925,6 @@ body {
 
     .production-card {
         max-width: 30rem;
-        /* width: 21.5625rem; */
         height: 429px;
         flex-basis: 100%;
     }
