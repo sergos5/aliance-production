@@ -915,10 +915,6 @@ body {
         height: 40px;
     }
 
-    .steps-arrow path:active {
-        fill: red
-    }
-
     .founder-photo {
         position: relative;
         width: 100%;
