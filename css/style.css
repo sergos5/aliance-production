@@ -289,7 +289,7 @@ body {
 }
 
 .header-features-arrows,
-.steps-arrows {
+.primary-arrows {
     display: none;
     -webkit-tap-highlight-color: transparent;
 }
@@ -301,6 +301,7 @@ body {
 
 .section {
     margin-top: 9.375rem;
+    margin-bottom: 9.375rem;
 }
 
 .section-title {
@@ -362,6 +363,31 @@ body {
     margin-bottom: 1.3125rem;
     max-width: 300px;
 }
+
+.primary-arrows {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    cursor: pointer;
+}
+
+.primary-arrow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #5C8EE5;
+    width: 5rem;
+    height: 3.75rem;
+}
+
+.primary-arrow:active {
+    background-color: #3A71D1;
+}
+
+.steps-wrapper>.primary-arrows {
+    display: none;
+}
+
 
 .button-link {
     color: #5C8EE5;
@@ -581,18 +607,79 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
+    filter: grayscale(100%);
+    transition: filter .2s;
 }
 
 .client-logo {
     max-width: 70%;
     width: 70px;
     height: 70px;
-    filter: grayscale(100%);
-    transition: filter .2s;
 }
 
-.clients-logo-item:hover .client-logo {
-    filter: grayscale(0);
+.clients-logo-item:hover {
+    filter: grayscale(0%);
+}
+
+
+.blog-items {
+    display: flex;
+    gap: 1.875rem;
+    margin-bottom: 1.875rem;
+    transition: transform .3s;
+}
+
+.blog-item {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    width: calc((1440px - 1.875rem)/2);
+    aspect-ratio: 705/400;
+    padding: 3.125rem;
+    color: #fff;
+    flex-shrink: 0;
+}
+
+.blog-item-image {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    z-index: -2;
+}
+
+.blog-item::after {
+    content: '';
+    background: rgba(41, 45, 51, 0.60);
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    z-index: -1;
+}
+
+.blog-item-title {
+    font-size: 1.75rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 160%;
+    margin-bottom: 0.625rem;
+}
+
+.blog-item-text {
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 160%;
+}
+
+.blog-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
 
@@ -636,6 +723,10 @@ body {
     .clients-content {
         flex-basis: 65%;
     }
+
+    .blog-item {
+        width: calc((1140px - 1.875rem)/2);
+    }
 }
 
 
@@ -665,6 +756,8 @@ body {
         gap: 0.5rem;
         padding-right: 1.125rem;
     }
+
+
 }
 
 @media (max-width: 1200px) {
@@ -706,6 +799,10 @@ body {
 
     .production-card {
         flex-basis: 50%;
+    }
+
+    .blog-item {
+        width: calc((960px - 1.875rem)/2);
     }
 
 }
@@ -934,6 +1031,7 @@ body {
 
     .section {
         margin-top: 100px;
+        margin-bottom: 100px;
     }
 
     .section-title {
@@ -948,6 +1046,7 @@ body {
         width: 1425px;
         margin-top: 30px;
         transition: transform .5s;
+        margin-bottom: 20px;
     }
 
     .steps-item {
@@ -960,21 +1059,13 @@ body {
         margin-bottom: 10px;
     }
 
-    .steps-arrows {
+    .steps-wrapper>.primary-arrows {
         display: flex;
-        align-items: center;
-        justify-content: flex-end;
-        margin-top: 20px;
-        cursor: pointer;
     }
 
-    .steps-arrow {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        background-color: #5C8EE5;
-        width: 60px;
-        height: 40px;
+    .primary-arrow {
+        width: 3.75rem;
+        height: 2.5rem;
     }
 
     .founder-photo {
@@ -985,8 +1076,23 @@ body {
 
     .clients-wrap {
         flex-direction: column;
-        /* align-items: center; */
     }
+
+    .blog-item {
+        padding: 20px 35px;
+        width: calc((720px - 1.875rem)/2);
+        aspect-ratio: 345/195;
+    }
+
+    .blog-item-title {
+        font-size: 20px;
+        line-height: 120%;
+    }
+
+    .blog-item-text {
+        display: none;
+    }
+
 }
 
 @media (max-width: 768px) {
@@ -1040,6 +1146,21 @@ body {
         flex-basis: 50%;
         min-height: 110px;
     }
+
+    .blog-item {
+        width: 100%;
+    }
+
+    .blog-item-title {
+        font-size: 1.75rem;
+        line-height: 160%;
+    }
+
+    .blog-item-text {
+        display: block;
+    }
+
+
 }
 
 @media (max-width: 576px) {
@@ -1069,6 +1190,15 @@ body {
 
     .section-title {
         font-size: 2.25rem;
+    }
+
+    .blog-item-title {
+        font-size: 20px;
+        line-height: 120%;
+    }
+
+    .blog-item-text {
+        display: none;
     }
 
 }

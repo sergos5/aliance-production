@@ -1,4 +1,4 @@
-const slider = (slider) => {
+const slider = (slider, exactEndScrollSliderDody = false) => {
 
     const sliderWrapper = document.querySelector(slider)
     const sliderBody = sliderWrapper.querySelector('.slider-body')
@@ -6,39 +6,51 @@ const slider = (slider) => {
     const arrowLeft = sliderWrapper.querySelector('.arrow-left')
     const arrowRight = sliderWrapper.querySelector('.arrow-right')
 
-    const arrRight = arrowRight.querySelector('.arr-right')
-    const arrLeft = arrowLeft.querySelector('.arr-left')
+    const arrRightImg = arrowRight.querySelector('.arr-right')
+    const arrLeftImg = arrowLeft.querySelector('.arr-left')
 
-    arrLeft.style.fill = '#B2B4C0'
+    arrLeftImg.style.fill = '#B2B4C0'
 
     let containerWidth = document.querySelector('.container').clientWidth
-    let sliderBodyWidth = sliderBody.clientWidth
-    let stepWidth = sliderItem.clientWidth
+    let sliderBodyWidth = sliderBody.scrollWidth
+    let gap = 0
+    if (parseFloat(getComputedStyle(sliderBody).gap)) gap = parseFloat(getComputedStyle(sliderBody).gap);
+    let stepWidth = sliderItem.clientWidth + gap
     let screenWidth = window.outerWidth
 
     let maxSlideOffset = sliderBodyWidth - containerWidth
 
     let slideOffset = 0
 
+    /* console.log('maxSlideOffset = ' + maxSlideOffset);
+    console.log('stepWidth = ' + stepWidth); */
+
     const showRightSlide = () => {
-        if (maxSlideOffset + slideOffset < stepWidth) {
+
+        if (maxSlideOffset + slideOffset < stepWidth * 1.25 && exactEndScrollSliderDody) {
             slideOffset = -maxSlideOffset
-            arrRight.style.fill = '#B2B4C0'
+        } else if (Math.abs(slideOffset) >= maxSlideOffset && exactEndScrollSliderDody == false) {
+            return
         } else {
             slideOffset -= stepWidth
-            arrLeft.style.fill = 'white'
         }
         sliderBody.style.transform = `translate(${slideOffset}px)`
+
+        if (Math.abs(slideOffset) >= maxSlideOffset) {
+            arrRightImg.style.fill = '#B2B4C0'
+        } else {
+            arrLeftImg.style.fill = 'white'
+        }
     }
 
     const showLeftSlide = () => {
         slideOffset += stepWidth
-        if (stepWidth - slideOffset < stepWidth) {
+        if (stepWidth - slideOffset <= stepWidth * 1.25) {
             slideOffset = 0
-            arrLeft.style.fill = '#B2B4C0'
+            arrLeftImg.style.fill = '#B2B4C0'
         }
         sliderBody.style.transform = `translate(${slideOffset}px)`
-        arrRight.style.fill = 'white'
+        arrRightImg.style.fill = 'white'
     }
 
     const swipeSlide = () => {
@@ -85,6 +97,7 @@ const slider = (slider) => {
     swipeSlide()
 }
 
-slider('.header-features-wrapper')
-slider('.steps-wrapper')
+slider('.header-features-wrapper', true)
+slider('.steps-wrapper', true)
+slider('.blog-wrapper')
 
